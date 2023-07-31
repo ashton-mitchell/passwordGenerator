@@ -20,11 +20,26 @@ int main()
 
 std::string generate(int numOfChars, std::string specialChars) {
 
-    std::string chars = "abcdefghijklmnopqrstuvwxyz0123456789" + specialChars;
+    std::string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" + specialChars;
     std::string password = "";
+    std::string newChar = "";
+    int lastIndex;
+    std::string lastChar = "";
 
     for (int i = 0; i < numOfChars; i++) {
-        password += chars[rand() % (chars.length() - 1)];
+        
+        newChar = chars[rand() % (chars.length() - 1)];
+
+        if (password.length() > 0) {
+            lastIndex = password.length() - 1;
+            lastChar = password[lastIndex];
+        }
+
+        if (lastChar == newChar) {
+            newChar = chars[rand() % (chars.length() - 1)];
+        }
+        
+        password += newChar;
     }
 
     return password;
