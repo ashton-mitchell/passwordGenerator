@@ -13,7 +13,8 @@ int main()
     std::cin >> numOfChars;
     std::cout << "Special Characters Allowed : " << std::endl;
     std::cin >> specialChars;
-    std::cout << generate(numOfChars, specialChars) << std::endl;
+    std::cout << std::endl;
+    std::cout << "Password : " << generate(numOfChars, specialChars) << std::endl;
     
 }
 
